@@ -1,0 +1,226 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+    /* scrollbar-width: thich; */
+    scrollbar-color: white black;
+    --border-contrast: darkgray;
+}
+
+h1, h2 {
+    margin-bottom: 1em;
+}
+
+#previewText {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    margin-bottom: .6em;
+    user-select: text;
+}
+
+#previewText::after {
+    content: "↩";
+    color: rgba(255, 255, 255, 0.4);
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.stringParagraph {
+    width: fit-content;
+    padding: .2em;
+    border-left: medium solid white;
+    transition: .2s;
+}
+
+/* .stringParagraph:hover {
+    border-left-width: 1.05em;
+}
+
+.stringParagraph:hover::before {
+    content: ">";
+    color: black;
+    margin-left: -1em;
+} */
+
+.paragraphContainer::before {
+    color: white;
+    /* text-decoration:underline; */
+    border: medium solid white;
+    border-bottom: none;
+    padding: .2em;
+    padding-bottom: 0px;
+}
+
+#inputBox {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    padding-right: 1em;
+}
+
+.ibox {
+    transition: .2s;
+    width: 100%;
+    border: none;
+    border-left: medium solid white;
+    font-size: 1em;
+    color: lightgray;
+}
+
+.ibox:focus {
+    border-left-width: 1em;
+    outline: none;
+    min-width: calc(3ch + 1em);
+}
+
+input, textarea, button {
+    transition: .2s;
+    background-color: black;
+    border: medium solid var(--border-contrast);
+    color: white;
+    padding: .2em;
+    resize: none;
+}
+
+input:focus, textarea:focus, button:hover, button:focus {
+    outline: none;
+    background-color: white;
+    color: black;
+}
+
+body {
+    display: flex;
+}
+
+main {
+    flex-grow: 1;
+    overflow-x:hidden;
+}
+
+aside h2 {
+    font-size: xx-large;
+}
+
+aside {
+    position: fixed;
+    height: 100vh;
+    right: 0;
+    transition: 1s;
+    width: 25vw;
+    padding: 1em;
+    background-color: white;
+    color: black;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow-y: auto;
+}
+
+aside::before {
+  filter: grayscale(1);
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  opacity: .2;
+
+  background-size: contain;
+  background-position: left bottom;
+  background-image: url('/background.png');
+  background-repeat: no-repeat;
+
+  z-index: 0;
+  pointer-events: none
+}
+
+aside > * {
+  position: relative;
+  z-index: 1;
+}
+
+aside.closed {
+    transform: translateX(100%);
+    pointer-events: none;
+}
+
+header {
+    padding: .4em;
+    border-bottom: medium solid white;
+    display: flex;
+}
+
+header h1 {
+    margin-bottom: 0px;
+    margin-right: .6em;
+}
+
+#headerOptions a {
+    cursor: pointer;
+}
+
+#settingsOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#newVariation {
+    display: flex;
+    flex-direction: column;
+    gap: .4em;
+}
+
+.blankline {
+    font-style: italic;
+}
+
+#variations {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.variation {
+    display: flex;
+    border: medium solid white;
+    padding: .4em;
+}
+
+.variationName {
+    flex-grow: 1;
+}
+
+.variationDelete {
+    color: red;
+    cursor: pointer;
+}
+
+#project {
+    color: lightgray;
+}
+
+.movingGradient {
+    background: linear-gradient(to right, white, darkgray, white);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: movingGradientAnimation 6s ease-in-out infinite;
+    background-size: 400% 100%;
+}
+
+@keyframes movingGradientAnimation {
+    0%,100% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 100% 0;
+    }
+}
