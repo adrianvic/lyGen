@@ -133,7 +133,7 @@ aside::before {
 
   background-size: contain;
   background-position: left bottom;
-  background-image: url('/background.png');
+  background-image: url('./background.png');
   background-repeat: no-repeat;
 
   z-index: 0;
